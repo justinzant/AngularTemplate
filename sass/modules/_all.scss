@@ -1,12 +1,5 @@
 ﻿@import "Compass";
 
-@mixin bg-gradient-radial($startcolor, $endcolor){
-    background: $startcolor;/* Old Browsers */
-    background: -moz-radial-gradient(center, ellipse cover, $startcolor 0%, $endcolor 49%, $endcolor 100%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $startcolor), color-stop(49%, #3399cc), color-stop(100%, #3399cc));/* Chrome, Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover, $startcolor 0%, #3399cc 49%, $endcolor 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover, $startcolor 0%, #3399cc 49%, $endcolor 100%); /* Opera 11.10+ */
-    background: -ms-radial-gradient(center, ellipse cover, $startcolor 0%, #3399cc 49%, $endcolor 100%); /* IE 10+ */
-    background: radial-gradient(ellipse at center, $startcolor 0%, $endcolor 49%, $endcolor 100%);/* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63dff2', endColorstr='#3399cc', GradientType=1 );
-}
+@import "animations";
+@import "borders";
+@import "gradients";

@@ -1,29 +1,51 @@
 ﻿@import "Compass";
 
+/*----------------------------------------
+    BASE:
+    * contains all known variables
+    * extents the style defition of _site
+    * definitions that are generic are not categorized 
+-----------------------------------------*/
+
+/* 
+    GENERICS 
+*/
+
+//Font sizes
+$font-small: 10px;
+$font-regular: 13px;
+$font-big: 25px;
+$font-huge: 50px;
+$font-extreme: 100px;
+
 // Font weights
 $weight-light: 100;
 $weight-regular: 400;
 $weight-bold: 600;
 
+//Font styles
+$generic-font: monospace;
+$generic-font-color: #111111; //Near Black
+
+// Fixed Font
+$fixed-font-family: monospace;
+$fixed-font-size: 85%;
+
+
+/* 
+    BRANDED 
+*/
+
+$brand-main-font: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+$brand-main-letter-spacing: 10px;
+$brand-main-weight: $weight-regular;
+$brand-line-height: 1.4;
+
 // Font Colors
-$brand-color: black;
+$brand-main-font-color: ghostwhite;
+$brand-sub-font-color: $generic-font-color; //Near Black
 
 // Gradient Colors
 $bg-gradient-start: #63dff2;
 $bg-gradient-end: #3399cc;
 $bg-gradient-direction: horizontal;
-
-// Base Font
-$base-font-family: sans-serif;
-$base-font-weight: $weight-regular;
-$base-font-size: 13px;
-$base-line-height: 1.4;
-
-// Fixed Font
-$fixed-font-family: monospace;
-$fixed-font-size: 85%;
-$fixed-line-height: $base-line-height;
-
-// Headings
-$header-font-weight: $weight-bold;
-

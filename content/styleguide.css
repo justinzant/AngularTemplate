@@ -166,15 +166,8 @@ html, body {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 }
 
-.headerspacing {
-    height: 75px;
-}
 
-.view-alignement {
-    text-align:center;
-    min-height: 500px;
-}
-
+/*
 .vertical-text{
     position: absolute;
     top: 0;
@@ -203,9 +196,8 @@ span.glyphicon {
     font-size: 1.5em;
 }
 
-/* 
-    * Animation Components
-*/
+
+
 #nav-bot:hover {
     height: 125px;
 }
@@ -230,7 +222,7 @@ span.glyphicon {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0 );
 
     -moz-transition: width 1s, height 1s, -moz-transform 1s;
-    -webkit-transition: width 1s, height 1s, -webkit-transform 1s; /* For Safari 3.1 to 6.0 */
+    -webkit-transition: width 1s, height 1s, -webkit-transform 1s; 
     transition: width 1s, height 1s, transform 1s;
 
     -moz-animation-name: movedown;
@@ -272,6 +264,8 @@ span.glyphicon {
   transition-delay:0s;
 }
 
+
+
 @keyframes expand {
     0% { max-height: 0; }
     100% { max-height: 100%; }
@@ -301,3 +295,4 @@ span.glyphicon {
     0% { transform: translateY(40px); }
     100% { transform: translateY(0);  }
 }
+    */

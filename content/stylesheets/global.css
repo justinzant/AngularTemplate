@@ -1,0 +1,400 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*----------------------------------------
+    BASE:
+    * contains all known variables
+    * extents the style defition of _site
+    * definitions that are generic are not categorized 
+-----------------------------------------*/
+/* 
+    GENERICS 
+*/
+/* 
+    BRANDED 
+*/
+/*----------------------------------------
+    SITE:
+    * contains all styles concerning generic site definitions
+    * can be considered the styleguide or brandstyle
+----------------------------------------*/
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.body-bg {
+  width: 99%;
+  height: 97.5%;
+  margin: 10px;
+  min-height: 500px;
+  background-color: #63dff2;
+  background: #63dff2;
+  /* Old Browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #63dff2 0%, #3399cc 49%, #3399cc 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #63dff2), color-stop(49%, #3399cc), color-stop(100%, #3399cc));
+  /* Chrome, Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #63dff2 0%, #3399cc 49%, #3399cc 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: radial-gradient(ellipse at center, #63dff2 0%, #3399cc 49%, #3399cc 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63dff2', endColorstr='#3399cc', GradientType=1 );
+  background-repeat: no-repeat;
+  border: solid 1px;
+  border-radius: 12px;
+  border-width: 8px;
+  -webkit-border-image: url(../../content/images/borderimage02.png) round;
+  /* Safari 3.1-5 */
+  border-image: url(../../content/images/borderimage02.png) round;
+  border-image-slice: 14%;
+}
+
+.audiostyle {
+  float: right;
+  top: 10px;
+  right: 0;
+  font-size: 1.5em;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+  border: none;
+}
+
+.view-alignement {
+  text-align: center;
+  min-height: 500px;
+}
+
+.fadeline {
+  position: relative;
+  display: block;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+}
+
+/*/*----------------------------------------
+    CONTENT HOLDERS:
+    * contain all styles concerning elements that display content
+    * classes have a c- prefix
+/*----------------------------------------*/
+#c-bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url("") no-repeat;
+  background-size: cover;
+}
+
+.c-contentbox {
+  display: inline-block;
+  position: absolute;
+  bottom: 175px;
+  width: 500px;
+  margin-left: -250px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: ghostwhite;
+  overflow: hidden;
+  line-height: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  -moz-transition: width 1s, height 1s, -moz-transform 1s;
+  -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 1s, height 1s, transform 1s;
+  -moz-animation-name: expand;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-duration: 0.5s;
+  -webkit-animation-name: expand;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.5s;
+  animation-name: expand;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.5s;
+}
+
+.c-title {
+  display: inline-block;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 800px;
+  left: 50%;
+  width: 250px;
+  margin-left: -125px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  letter-spacing: 10px;
+  color: ghostwhite;
+  font-size: 50px;
+}
+
+.c-header {
+  position: absolute;
+  display: inline-block;
+  margin-left: -250px;
+  padding-top: 10px;
+  width: 500px;
+  bottom: 150px;
+}
+
+.c-header .title-index {
+  display: inline;
+  width: 10%;
+  padding-right: 2%;
+  font-size: 20px;
+  font-variant: small-caps;
+  border-right: 1px solid #f6f8f9;
+  color: white;
+}
+
+.c-header .title-name {
+  display: inline;
+  margin-left: 2%;
+  width: 88%;
+  font-size: 20px;
+  font-weight: bold;
+  font-variant: small-caps;
+  color: white;
+}
+
+/*/*----------------------------------------
+    FONT:
+    * contains all styles concerning text and fonts
+    * classes a f- prefix
+/*----------------------------------------*/
+/*/*----------------------------------------
+    NAVIGATION:
+    * contains all styles concerning nagivation elements
+    * classes a nav- prefix
+/*----------------------------------------*/
+#nav-bot {
+  display: inline-block;
+  position: absolute;
+  bottom: 2.5%;
+  left: 50%;
+  width: 250px;
+  height: 55px;
+  margin-bottom: -10px;
+  margin-top: 0;
+  margin-left: -125px;
+  background: rgba(0, 0, 0, 0.05);
+  border-top: dotted 1px rgba(255, 255, 255, 0.55);
+  -moz-transition: height 1s;
+  -webkit-transition: height 1s;
+  /* For Safari 3.1 to 6.0 */
+  transition: height 1s;
+}
+
+#nav-botline {
+  position: absolute;
+  margin-bottom: 45px;
+  bottom: 2.5%;
+  width: 48%;
+  left: 25%;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+  z-index: 0;
+}
+
+#nav-bot:hover {
+  height: 125px;
+}
+
+.nav-button {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 55px;
+  border: dotted 1px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  overflow: hidden;
+  background: #f2f6f8;
+  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 47%, #b5c6d0 58%, #e0eff9 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #f2f6f8), color-stop(47%, #d8e1e7), color-stop(58%, #b5c6d0), color-stop(100%, #e0eff9));
+  background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 47%, #b5c6d0 58%, #e0eff9 100%);
+  background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 47%, #b5c6d0 58%, #e0eff9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$startcolor', endColorstr='$endcolor', GradientType=0 );
+  -moz-transition: width 1s, height 1s, -moz-transform 1s;
+  -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 1s, height 1s, transform 1s;
+  -moz-animation-name: movedown;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease-out;
+  -moz-animation-duration: 0.55s;
+  -webkit-animation-name: movedown;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-duration: 0.55s;
+  animation-name: movedown;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 0.55s;
+}
+
+.nav-button:hover {
+  width: 50px;
+  height: 125px;
+  visibility: visible;
+  opacity: 1;
+  border: dotted 1px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 0%, #f6f8f9 47%, #cdd9df 58%, #ffffff 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #ffffff), color-stop(47%, #f6f8f9), color-stop(58%, #cdd9df), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f6f8f9 47%, #cdd9df 58%, #ffffff 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f6f8f9 47%, #cdd9df 58%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$startcolor', endColorstr='$endcolor', GradientType=0 );
+}
+
+.nav-button:hover > .vertical-text {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+@keyframes expand {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 100%;
+  }
+}
+@-moz-keyframes expand {
+  0% {
+    max-height: 0%;
+  }
+  100% {
+    max-height: 100%;
+  }
+}
+@-webkit-keyframes expand {
+  0% {
+    max-height: 0%;
+  }
+  100% {
+    max-height: 100%;
+  }
+}
+@-moz-keyframes movedown {
+  0% {
+    -moz-transform: translateY(40px);
+  }
+  100% {
+    -moz-transform: translateY(0);
+  }
+}
+@-webkit-keyframes movedown {
+  0% {
+    -webkit-transform: translateY(40px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes movedown {
+  0% {
+    transform: translateY(40px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.vertical-text {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  margin-top: 70px;
+  font-size: 15px;
+  z-index: 2;
+  opacity: 0.1;
+  transition: visibility 0s linear 1.5s,opacity 1.5s linear;
+  transform: rotate(90deg);
+}
+
+.vertical-text a {
+  font-size: 15px;
+  font-weight: bold;
+  color: #2a2a2a;
+}
+
+.vertical-text a:hover {
+  text-decoration: none;
+  color: #607473;
+}
+
+span.glyphicon {
+  font-size: 1.5em;
+}
+
+/*!
+    GLOBAL:
+    * StyleGuide v3.1.1 (http://github.com)
+    * collects all css related information
+    * This is a sepperate style guide to prevent interference 
+    * with default boothstrappers and promote faster load times
+    * Copyright 2015 AngularGlass, Inc.
+ */

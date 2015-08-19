@@ -1,0 +1,83 @@
+﻿@import "Compass";
+@import "base";
+@import "../modules/animations";
+
+/*/*----------------------------------------
+    CONTENT HOLDERS:
+    * contain all styles concerning elements that display content
+    * classes have a c- prefix
+/*----------------------------------------*/
+
+#c-bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url("") no-repeat;
+    background-size: cover;
+}
+
+.c-contentbox {
+    display: inline-block; 
+    position: absolute;
+    bottom: 175px;
+    width: 500px;
+    margin-left: -250px;
+    font-family: $brand-main-font;
+    color: $brand-main-font-color;
+    overflow: hidden;
+    line-height: 24px;
+    background: rgba(255, 255, 255, 0.10);
+
+    @include anim-expand( expand, 1, ease-in-out, 0.5s );
+}
+
+.c-title{
+     display: inline-block;
+     position: absolute;
+     margin: 0 auto;
+     bottom: 800px;
+     left: 50%;
+     width: 250px;
+     margin-left: -125px;
+     font-family: $brand-main-font;
+     font-weight: $brand-main-weight;
+     letter-spacing: $brand-main-letter-spacing;
+     color: $brand-main-font-color;
+     font-size: 50px;
+}
+
+.c-header {
+    position: absolute;
+    display: inline-block;
+    margin-left: -250px;
+    padding-top: 10px;
+    width: 500px;
+    bottom: 150px;
+}
+.c-header .title-index {
+    display: inline;
+    width: 10%;
+    padding-right: 2%;
+    font-size: 20px;
+    font-variant: small-caps;
+    border-right: 1px solid rgba(246,248,249,1); 
+    color: white;
+}
+
+.c-header .title-name {
+    display: inline;
+    margin-left: 2%;
+    width: 88%;
+    font-size: 20px;
+    font-weight: bold;
+    font-variant: small-caps;
+    color: white;
+}
+

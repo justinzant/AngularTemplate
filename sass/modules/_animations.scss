@@ -1,0 +1,43 @@
+﻿@import "Compass";
+
+@mixin anim-movedown($name, $count, $timing, $duration) {
+    -moz-transition: width 1s, height 1s, -moz-transform 1s;
+    -webkit-transition: width 1s, height 1s, -webkit-transform 1s; /* For Safari 3.1 to 6.0 */
+    transition: width 1s, height 1s, transform 1s;
+
+    -moz-animation-name: $name;
+    -moz-animation-iteration-count: $count;
+    -moz-animation-timing-function: $timing;
+    -moz-animation-duration: $duration;
+
+    -webkit-animation-name: $name;
+    -webkit-animation-iteration-count: $count;
+    -webkit-animation-timing-function: $timing;
+    -webkit-animation-duration: $duration;
+
+    animation-name: $name;
+    animation-iteration-count: $count;
+    animation-timing-function: $timing;
+    animation-duration: $duration;
+}
+
+@mixin anim-expand($name, $count, $timing, $duration) {
+    -moz-transition: width 1s, height 1s, -moz-transform 1s;
+    -webkit-transition: width 1s, height 1s, -webkit-transform 1s; /* For Safari 3.1 to 6.0 */
+    transition: width 1s, height 1s, transform 1s;
+
+    -moz-animation-name: $name;
+    -moz-animation-iteration-count: $count;
+    -moz-animation-timing-function: $timing;
+    -moz-animation-duration: $duration;
+
+    -webkit-animation-name: $name;
+    -webkit-animation-iteration-count: $count;
+    -webkit-animation-timing-function: $timing;
+    -webkit-animation-duration: $duration;
+
+    animation-name: $name;
+    animation-iteration-count: $count;
+    animation-timing-function: $timing;
+    animation-duration: $duration;
+}
