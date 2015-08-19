@@ -1,0 +1,16 @@
+﻿{
+"GamesList": [
+  {
+    "GameName": "RIVE",
+    "GameId": "rive"
+  },
+  {
+    "GameName": "Moonscrapers",
+    "GameId": "moonscrapers"
+  },
+  {
+    "GameName": "NoMan Mayham",
+    "GameId": "nomanmayhem"
+  }
+]
+}

@@ -1,0 +1,20 @@
+﻿@import "Compass/Reset";
+
+// Modules and Variables
+@import "modules/all";
+
+// Partials
+@import "partials/base";
+
+// Vendors
+
+body{
+    margin:auto;
+    color: $brand-color;
+   // @include alpha-background-color(rgba(black, 0.5), white);
+}
+
+.body-bg{
+    background-color: $bg-gradient-start;
+    @include bg-gradient-radial($bg-gradient-start, $bg-gradient-end); 
+}

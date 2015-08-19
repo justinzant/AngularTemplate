@@ -1,0 +1,59 @@
+﻿<!-- Header Expand Template -->
+<nav id="nav-botline">
+    </nav>
+<nav id="nav-bot">
+    <div id="navbutton0" class="nav-button">
+        <br />
+        <span class="glyphicon glyphicon-home"></span>
+        <h6 class="vertical-text"><a href="#">Home</a></h6>
+    </div>
+
+    <div id="navbutton1" class="nav-button">
+        <br />
+        <span class="glyphicon glyphicon-book"></span>
+        <h6 class="vertical-text"><a href="#">Portfolio</a></h6>
+    </div>
+
+    <div id="navbutton2" class="nav-button">
+        <br />
+        <span class="glyphicon glyphicon-user"></span>
+        <h6 class="vertical-text"><a href="#">About</a></h6>
+    </div>
+
+    <div id="navbutton3" class="nav-button">
+        <br />
+        <span class="glyphicon glyphicon-info-sign"></span>
+        <h6 class="vertical-text"><a href="#">Contact</a></h6>
+    </div>
+
+    <div id="navbutton4" class="nav-button">
+        <br />
+        <span class="glyphicon glyphicon-download"></span>
+        <h6 class="vertical-text"><a href="#">Contact</a></h6>
+    </div>
+</nav>
+
+<script>
+    var tumbGrid = [];
+    var size = 5;
+
+    function coroutine(f) {
+        var o = f(); // instantiate the coroutine
+        o.next(); // execute until the first yield
+        return function(x) {
+            o.next(x);
+        }
+    }
+
+    var clock = coroutine(function *(_) {
+        for (var i = 0; i < size; i++) {
+            var navbutton = document.getElementById("navbutton" + i);
+            navbutton.style.zIndex = 0;
+            navbutton.style.left = 50*i + "px";
+            tumbGrid.push(navbutton);
+            yield [_]
+        }
+    });
+
+    setInterval(clock, 200);
+</script>

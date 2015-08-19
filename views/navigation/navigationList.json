@@ -1,0 +1,20 @@
+﻿{
+  "Navigation": [
+    {
+      "Name": "Home",
+      "Id": "home"
+    },
+    {
+      "Name": "Projects",
+      "Id": "projects"
+    },
+    {
+      "Name": "Info",
+      "Id": "info"
+    },
+    {
+      "Name": "Other",
+      "Id": "other"
+    }
+  ]
+}

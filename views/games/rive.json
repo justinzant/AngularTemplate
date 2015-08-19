@@ -1,0 +1,20 @@
+﻿{
+  "Game":
+    {
+      "Name": "Rive",
+      "Description": "Description of moonscrapers",
+      "Contribution": "Description of moonscrapers",
+      "Id": "moonscrapers",
+      "Images": [
+        "img/games/moonscrapers01.jpg",
+        "img/games/moonscrapers02.jpg",
+        "img/games/moonscrapers03.jpg",
+        "img/games/moonscrapers04.jpg",
+        "img/games/moonscrapers05.jpg"
+      ],
+      "Urls": {
+        "Website": "http://www.moonscrapers.nl",
+        "PressKit": "http://presskit.nl"
+      }
+    }
+}
