@@ -1,0 +1,21 @@
+﻿{
+  "Partial": {
+    "Name": "Justin Zant",
+    "LinkName":  "HOME",
+    "Title": "What is this?",
+    "Description": [
+      "This is a website made with different libraries such as Angular JS, JQuery, and Sass. It illustrates common CSS/HTML problems to which it provides solutions. Several of these problems are: directional scaling, reseting keyframe animations, bottom aligning divs, and responsiveness.",
+      "I used Limited art to clearly illustrate the CSS/HTML elements. In addition, you can find more information on what I did and who I am."
+    ],
+    "Contribution": "",
+    "Id": "home",
+    "Index": "00",
+    "Images": [
+      ""
+    ],
+    "Urls": {
+      "Website": "",
+      "PressKit": ""
+    }
+  }
+}

@@ -9,7 +9,86 @@
     * classes a f- prefix
 /*----------------------------------------*/
 
-.f-contentbox{
-
+.f-title{
+     font-family: $brand-main-font;
+     font-weight: $brand-main-weight;
+     letter-spacing: $brand-main-letter-spacing;
+     color: $brand-main-font-color;
+     font-size: $font-huge;
+     text-align: center;
 }
+
+.f-contentbox{
+    font-family: $brand-main-font;
+    text-align: justify;
+    color: $brand-main-font-color;
+    line-height: $brand-line-height;
+}
+
+.f-header{
+    font-family: $brand-main-font;
+    color: $brand-main-font-color;
+    line-height: $brand-line-height;
+    font-size: $font-big;
+    font-variant: small-caps;
+}
+
+.f-header .title-index{
+    font-weight: $weight-light;
+}
+
+.f-header .title-name{
+    font-weight: $weight-bold;
+}
+
+//Button Text
+.vertical-text{
+    position: absolute;
+    top: 0;
+    width: 50px;
+    margin-top: 70px;
+    font-size: 15px;
+    z-index: 2;
+    opacity:0.1;
+
+    transition:visibility 0s linear 1.5s,opacity 1.5s linear;
+    transform: rotate(90deg);
+}
+
+.vertical-text a {
+    font-size: 15px;
+    font-weight: bold;
+    color: #2a2a2a;
+}
+
+.vertical-text a:hover {
+    text-decoration: none;
+    color: #454949;
+}
+
+span.glyphicon {
+    font-size: 1.5em;
+}
+
+.nav-button{
+    font-weight: bold;
+    color: #9ba7a6;
+}
+
+.nav-button:link{
+    color: #9ba7a6;
+}
+
+.nav-button:visited{
+    color: #9ba7a6;
+}
+
+.nav-button:hover{
+    color: #4e4e4e;
+}
+
+.nav-button:active{
+    color: #2b3233;
+}
+
 

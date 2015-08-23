@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style>
+    svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+
+    line {
+    stroke-width: 2;
+    stroke: #000;
+    fill: none;
+    stroke-dasharray: 100;
+    -webkit-transition: 1s, ease-in;
+    -moz-transition: 1s, ease-in;
+    transition: 1s, ease-in;
+    }
+
+    svg:hover .top {
+    -moz-transform: translateX(-60);
+    -webkit-transform: translateX(-60);
+    -ms-transform: translateX(-60);
+    transform: translateX(-60);
+    stroke: ghostwhite;
+    }
+
+    svg:hover .bottom {
+    stroke: ghostwhite;
+    }
+
+    svg:hover .left {
+    stroke: ghostwhite;
+    }
+
+    svg:hover .right {
+    stroke: ghostwhite;
+    }
+  </style>
+    <line class="top" x1="0" y1="0" x2="60" y2="0" />
+    <line class="left" x1="0" y1="-30" x2="0" y2="-60" />
+    <line class="bottom" x1="30" y1="30" x2="-30" y2="30" />
+    <line class="right" x1="30" y1="60" x2="30" y2="90" />
+</svg>

@@ -12,15 +12,17 @@ var tempApp = angular.module('templateApp', [
 tempApp.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
       $routeProvider.
-         when('/', {
+         when('/:homeId', {
             templateUrl: 'views/home/home.html',
             controller: 'main'
          })
-          .when('/views/games/:gameId', {
-            templateUrl: 'views/games/games.html',
-            controller: 'games'
+          .when('/views/partials/:partialId', {
+            templateUrl: 'views/partials/partials.html',
+            controller: 'partials'
         }).otherwise({
-            redirectTo: '/'
+            redirectTo: '/',
+            templateUrl: 'views/home/home.html',
+            controller: 'main'
         });
 
 }]);

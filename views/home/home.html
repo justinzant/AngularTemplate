@@ -1,29 +1,43 @@
 ﻿<!-- Home Template -->
-<div>
+
     
     <video autoplay loop poster="" id="c-bgvid">
         <source src="" type="video/webm">
         <source src="" type="video/mp4">
     </video>
 
-    <div class="c-title">Orbit</div>
+    <section class="c-table">
+        <header class="c-row">
+            <div class="c-cell-01 c-title f-title">{{homeData.Name}}</div>
+        </header>
 
-    <div class="c-contentbox">
-        <div class="fadeline"></div>
-        <div style="padding: 50px;">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-            passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </div>
-    </div>
-    <div class="c-header">
-        <div class="fadeline" style="margin-bottom: 4px;"></div>
-        <div class="title-index">01</div>
-        <div class="title-name">HOME</div>
-    </div>
-</div>
+        <header class="c-row" >
+            <div class="c-cell-02 c-contentbox f-contentbox">
+                <div class="c-animated-border">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                        <line id="box" class="top" x1="0" y1="0" x2="800" y2="0" />
+                        <line class="left" x1="0" y1="-450" x2="0" y2="-1000" />
+                        <line class="bottom" x1="450" y1="450" x2="-450" y2="450" />
+                        <line class="right" x1="490" y1="900" x2="490" y2="1550" />
+                    </svg>
+                </div>
+                <div class="fadeline"></div>
+                    <div class="c-paddingbox">
+                        
+                        <h3 filter:text> {{homeData.Title}} </h3>
+                        
+                        <p ng-repeat="paragraph in homeData.Description">{{paragraph}}</p></div>
+                </div>
+        </header>
 
+        <header class="c-row">
+            <div class="c-cell-03 c-header f-header">
+                <div class="fadeline"></div>
+                <div class="title-index">{{homeData.Index}}</div>
+                <div class="title-name">{{homeData.LinkName}}</div>
+            </div>
+        </header>
+    </section>
 <!--[if lt IE 9]>
 <script>
 document.createElement('video');

@@ -1,38 +1,44 @@
-﻿<!DOCTYPE html>
-<html ng-app="templateApp" ng-controller="main">
+﻿
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="templateApp" ng-controller="main">
 <head>
     <title>{{appTitle}}</title>
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Latest compiled CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="content/stylesheets/global.css">
 
     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   
     <base href="/">
 </head>
-<body class="view-alignement">
-
-    <div class="container-fluid body-bg">
-       
-         <div ng-view style="margin:0;"></div>
-
-        <div ng-include src="'views/navigation/header-bottomgrow.html'"></div>
-        <div ng-include src="'views/modules/audio.html'"></div>
-    </div>
-
-    <div ng-include src="'views/navigation/footer.html'"></div>
+<body ng-controller="partials">
+        <ng:include src="'views/modules/audio.html'"></ng:include>
     
-    <!-- Angular JS -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-    <script src="app/bower_components/angular-route/angular-route.js"></script>
-    <script src="app/main.js"></script>
-    <script src="controllers/mainControllers.js"></script>
+        <div class="content-frame-bg"></div>
+        <div id="view-container" class="container-fluid content-frame-{{route}}">
+            <div id="routeid" class="{{route}}"></div>
+            <div class="bg-circle-1"><div class="bg-cmini"></div></div>
+            <div class="bg-circle-2"><div class="bg-cmini"></div></div>
+            <div class="bg-circle-3"><div class="bg-cmini"></div></div>
+            <div class="bg-circle-4"><div class="bg-cmini"></div></div>
+            <div class="view-element" ng-view></div>
+        </div>
+    
+        <div class="menu-frame"><ng:include src="'views/navigation/header-bottomgrow.html'"></ng:include></div>
+        <div class="footer-frame"><ng:include src="'views/navigation/footer.html'"></ng:include></div>
 
+        <!-- Angular JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="app/bower_components/angular-route/angular-route.js"></script>
+        <script src="app/main.js"></script>
+        <script src="controllers/mainControllers.js"></script>
 </body>
 </html>

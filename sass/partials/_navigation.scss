@@ -10,38 +10,38 @@
 /*----------------------------------------*/
 
 //Raw Layout
-#nav-bot {
-    display:inline-block;
-    position: absolute;
-    bottom: 2.5%;
+#nav-border {
+    display: block;
+    position: relative;
+    top: 100%;
     left: 50%;
-    width: 250px;
-    height: 55px;
-    margin-bottom: -10px;
-    margin-top:0;
-    margin-left: -125px;
-    background: rgba(0, 0, 0, 0.05);
-    border-top: dotted 1px rgba(255, 255, 255, 0.55);
-
-    -moz-transition: height 1s;
-    -webkit-transition: height 1s; /* For Safari 3.1 to 6.0 */
-    transition: height 1s;
-
+    bottom: 67px;
+    height: 1px;
+    width: 600px;
+    margin-left: -300px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 }
 
-#nav-botline {
+#nav-bot {
+    display: inline-block;
     position: absolute;
-    margin-bottom:45px;
-    bottom: 2.5%;
-    width: 48%;
-    left: 25%;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
-    z-index:0;
+    bottom: -55px;
+    left: 50%;
+    width: 350px;
+    height: 55px;
+    margin-left: -175px;
+    background: rgba(0, 0, 0, 0.05);
+    border-top: dotted 1px rgba(255, 255, 255, 0.55);
+   
+    @include anim-height(1s);
 }
 
 #nav-bot:hover {
     height: 125px;
+}
+
+[id*="navbutton"]{
+    visibility: hidden;
 }
 
 .nav-button {
@@ -51,6 +51,7 @@
     height: 55px;
     border: dotted 1px rgba(0, 0, 0, 0.15);
     z-index: 1;
+    visibility: visible;
     overflow: hidden;
 
     @include gradient-four-horizontal(#f2f6f8, #d8e1e7, #b5c6d0, #e0eff9 );
@@ -72,19 +73,40 @@
     transition-delay:0s;
 }
 
-@keyframes expand {
-    0% { max-height: 0; }
-    100% { max-height: 100%; }
+
+.nav-button-next:before {
+    font-family: 'Glyphicons Halflings'; 
+    content:"\e080";
 }
 
-@-moz-keyframes expand {
-    0% { max-height: 0%; }
-    100% { max-height: 100%; }
+.nav-button-previous:before {
+    font-family: 'Glyphicons Halflings'; 
+    content:"\e079";
 }
 
-@-webkit-keyframes expand {
-    0% { max-height: 0%; }
-    100% { max-height: 100%; }
+.nav-button-previous, .nav-button-next {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    color: rgba(255, 255, 255, 0.25);
+    line-height: 2.5em;
+    border: solid 5px rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+    box-sizing: border-box;
+    z-index: 2;
+    overflow: hidden;
+    visibility: visible;
+    
+    @include anim-movedown( movedown, 1, ease-out, 0.55s);
+    @include anim-transition( 0.2s, ease-in-out);
+}
+
+.nav-button-previous:hover, .nav-button-next:hover{
+    color: rgba(255, 255, 255, 0.75);
+    border: 10px solid rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.27);
+    line-height: 2em;
 }
 
 @-moz-keyframes movedown {
@@ -100,34 +122,5 @@
 @keyframes movedown {
     0% { transform: translateY(40px); }
     100% { transform: translateY(0);  }
-}
-
-//Button Text
-.vertical-text{
-    position: absolute;
-    top: 0;
-    width: 50px;
-    margin-top: 70px;
-    font-size: 15px;
-    z-index: 2;
-    opacity:0.1;
-
-    transition:visibility 0s linear 1.5s,opacity 1.5s linear;
-    transform: rotate(90deg);
-}
-
-.vertical-text a {
-    font-size: 15px;
-    font-weight: bold;
-    color: #2a2a2a;
-}
-
-.vertical-text a:hover {
-    text-decoration: none;
-    color: #607473;
-}
-
-span.glyphicon {
-    font-size: 1.5em;
 }
 

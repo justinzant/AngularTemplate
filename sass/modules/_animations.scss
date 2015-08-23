@@ -21,23 +21,155 @@
     animation-duration: $duration;
 }
 
-@mixin anim-expand($name, $count, $timing, $duration) {
-    -moz-transition: width 1s, height 1s, -moz-transform 1s;
-    -webkit-transition: width 1s, height 1s, -webkit-transform 1s; /* For Safari 3.1 to 6.0 */
-    transition: width 1s, height 1s, transform 1s;
+@mixin anim-expand($name, $startvalue, $iterationcount, $timing, $duration) {
+    max-height: $startvalue;  
+    -moz-transition: max-height $duration;
+    -webkit-transition: max-height $duration; /* For Safari 3.1 to 6.0 */
+    transition: max-height $duration;
 
     -moz-animation-name: $name;
-    -moz-animation-iteration-count: $count;
+    -moz-animation-iteration-count: $iterationcount;
     -moz-animation-timing-function: $timing;
+    -moz-animation-fill-mode: forwards;
     -moz-animation-duration: $duration;
 
     -webkit-animation-name: $name;
-    -webkit-animation-iteration-count: $count;
+    -webkit-animation-iteration-count: $iterationcount;
     -webkit-animation-timing-function: $timing;
+    -webkit-animation-fill-mode: forwards;
     -webkit-animation-duration: $duration;
 
     animation-name: $name;
-    animation-iteration-count: $count;
+    animation-iteration-count: $iterationcount;
     animation-timing-function: $timing;
+    animation-fill-mode: forwards;
     animation-duration: $duration;
+}
+
+/* name | duration | timing-function | delay | iteration-count | direction | fill-mode | play-state */
+// Sepperate so that IE doesnt freak out on shorthanded expressions -sigh-
+@mixin anim-create($name, $duration, $timing, $delay, $iterationcount, $direction, $fillmode, $play-state) {
+    -moz-animation: $name $duration $timing $delay $iterationcount $direction;
+    -moz-animation: $name $duration $timing $delay $iterationcount $direction;
+    -moz-animation-fill-mode: $fillmode;
+    -moz-animation-timing-function: $play-state;
+    -webkit-animation: $name $duration $timing $delay $iterationcount $direction;
+    -webkit-animation-fill-mode: $fillmode;
+    -webkit-animation-timing-function: $play-state;
+    animation: $name $duration $timing $delay $iterationcount $direction;
+    animation-fill-mode: $fillmode;
+    animation-timing-function: $play-state;
+}
+
+@mixin anim-height($duration) {
+    -moz-transition: height $duration;
+    -webkit-transition: height $duration; /* For Safari 3.1 to 6.0 */
+    transition: height $duration;
+}
+
+@mixin anim-translateX($movex) {
+    -moz-transform: translateX($movex);
+   	-webkit-transform: translateX($movex);
+    -ms-transform: translateX($movex);
+    transform: translateX($movex);
+}
+
+@mixin anim-translateY($movey) {
+    -moz-transform: translateY($movey);
+   	-webkit-transform: translateY($movey);
+    -ms-transform: translateY($movey);
+    transform: translateY($movey);
+}
+
+@mixin anim-transition($duration, $easetype) {
+    -webkit-transition: $duration, $easetype;
+	-moz-transition: $duration, $easetype;
+	transition: $duration, $easetype;
+}
+
+@mixin keyframe-translate($name, $kv1x, $kv1y, $kv2x, $kv2y )
+{
+    @keyframes #{$name}{
+    0% { transform: translate($kv1x,$kv1y); }
+    100% { transform: translate($kv2x,$kv2y); }
+    }
+    @-webkit-keyframes #{$name}{
+    0% { -webkit-transform: translate($kv1x,$kv1y); }
+    100% { -webkit-transform: translate($kv2x,$kv2y); }
+    }
+     @-moz-keyframes #{$name}{
+    0% { -moz-transform: translate($kv1x,$kv1y); }
+    100% { -moz-transform: translate($kv2x,$kv2y); }
+    }
+     @-ms-keyframes #{$name}{
+    0% { -ms-transform: translate($kv1x,$kv1y); }
+    100% { -ms-transform: translate($kv2x,$kv2y); }
+    }
+}
+
+@mixin keyframe-rotate($name, $kv1, $kv2 )
+{
+    @keyframes #{$name}{
+    0% { transform: rotate($kv1); }
+    100% { transform: rotate($kv2); }
+    }
+    @-webkit-keyframes #{$name}{
+    0% { -webkit-transform: rotate($kv1); }
+    100% { -webkit-transform: rotate($kv2); }
+    }
+     @-moz-keyframes #{$name}{
+    0% { -moz-transform: rotate($kv1); }
+    100% { -moz-transform: rotate($kv2); }
+    }
+     @-ms-keyframes #{$name}{
+    0% { -ms-transform: rotate($kv1); }
+    100% { -ms-transform: rotate($kv2); }
+    }
+}
+
+@mixin keyframe-property($name, $property, $kv1, $kv2 )
+{
+    @keyframes #{$name}{
+    0% { #{$property}: $kv1; }
+    100% { #{$property}: $kv2; }
+    }
+
+    @-webkit-keyframes #{$name}{
+    0% { -webkit-#{$property}: $kv1; }
+    100% { -webkit-#{$property}: $kv2; }
+    }
+
+     @-moz-keyframes #{$name}{
+    0% { -moz-#{$property}: $kv1; }
+    100% { -moz-#{$property}: $kv2; }
+    }
+}
+
+@mixin keyframe-gradient($name, $startcolor1, $endcolor1, $startcolor1, $endcolor2 )
+{
+    @keyframes #{$name}{
+    0% { background: translate($kv1x,$kv1y); }
+    100% { transform: translate($kv2x,$kv2y); }
+    }
+    @-webkit-keyframes #{$name}{
+    0% { background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $startcolor1), color-stop(49%, #3399cc), color-stop(100%, #3399cc));/* Chrome, Safari4+ */ }
+    100% { background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $startcolor1), color-stop(49%, #3399cc), color-stop(100%, #3399cc));/* Chrome, Safari4+ */ }
+    }
+     @-moz-keyframes #{$name}{
+    0% { background: -moz-radial-gradient(center, ellipse cover, $startcolor1 0%, $endcolor1 49%, $endcolor2 100%); /* FF3.6+ */ }
+    100% { background: -moz-radial-gradient(center, ellipse cover, $startcolor1 0%, $endcolor1 49%, $endcolor2 100%); /* FF3.6+ */ }
+    }
+     @-ms-keyframes #{$name}{
+    0% { -ms-transform: translate($kv1x,$kv1y); }
+    100% { -ms-transform: translate($kv2x,$kv2y); }
+    }
+}
+
+@mixin bg-gradient-radial($startcolor, $endcolor){
+    background: $startcolor;/* Old Browsers */
+    background: -moz-radial-gradient(center, ellipse cover, $startcolor 0%, $endcolor 49%, $endcolor 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $startcolor), color-stop(49%, #3399cc), color-stop(100%, #3399cc));/* Chrome, Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, $startcolor 0%, #3399cc 49%, $endcolor 100%); /* Chrome10+,Safari5.1+ */
+    background: radial-gradient(ellipse at center, $startcolor 0%, $endcolor 49%, $endcolor 100%);/* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63dff2', endColorstr='#3399cc', GradientType=1 );
 }

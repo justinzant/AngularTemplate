@@ -1,0 +1,20 @@
+﻿{
+  "Partial": {
+    "Name": "CONTACT",
+    "Title": "Contact me, I won't bite!",
+    "Description": [
+      "+31(0)614922887",
+      "justinzant@gmail.com"
+    ],
+    "Contribution": "Description of moonscrapers",
+    "Id": "contact",
+    "Index": "04",
+    "Images": [
+      ""
+    ],
+    "Urls": {
+      "Website": "http://www.moonscrapers.nl",
+      "PressKit": "http://presskit.nl"
+    }
+  }
+}

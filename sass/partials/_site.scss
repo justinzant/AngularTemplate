@@ -12,41 +12,163 @@
 html, body {
     width: 100%;
     height: 100%;
+    min-height: 550px;
+    text-align: center;
 }
 
-.body-bg{
-    width: 99%;
-    height: 97.5%;
-    margin:10px;
-    min-height: 500px;
-    background-color: $bg-gradient-start;
-    @include bg-gradient-radial($bg-gradient-start, $bg-gradient-end); 
-    background-repeat: no-repeat;
-    @include border-image( 8px, 12px, url(../../content/images/borderimage02.png), 14% );
-   
+.menu-frame{
+    //no style; building block
 }
 
+.footer-frame{
+    height: 100px;
+    
+}
+
+//Background
+$c-size: 1200;
+$px-unit: 1px;
+$circle-size: $c-size * $px-unit !default;
+$circle-margin: $c-size/2 * $px-unit;
+
+$c-size2: 1400;
+$circle-size2: $c-size2 * $px-unit !default;
+$circle-margin2: $c-size2/2 * $px-unit;
+
+$c-size3: 1600;
+$circle-size3: $c-size3 * $px-unit !default;
+$circle-margin3: $c-size3/2 * $px-unit;
+
+$c-size4: 1800;
+$circle-size4: $c-size4 * $px-unit !default;
+$circle-margin4: $c-size4/2 * $px-unit;
+
+[class^="bg-circle"]{
+    position: absolute;
+    left: 50%;
+    border : 2px solid rgba(241, 241, 241, 0.15);
+    border-radius: 100%;
+    z-index: 1;
+   @include anim-create(rotateCircle, 25s, linear, 0s, infinite, normal, forwards, running );
+}
+
+.bg-circle-1{
+    top: 70%;
+    margin-top: -$circle-margin;
+    margin-left: -$circle-margin;
+    width: $circle-size;
+    height: $circle-size;
+    @include anim-create(rotateCircle, 30s, linear, 0s, infinite, normal, forwards, running );
+}
+
+.bg-circle-2{
+    top: 81%;
+    margin-top: -$circle-margin2;
+    margin-left: -$circle-margin2;
+    width: $circle-size2;
+    height: $circle-size2;
+    border : 2px dashed rgba(241, 241, 241, 0.12);
+   @include anim-create(rotateCircle, 60s, linear, 0s, infinite, normal, forwards, running );
+}
+
+.bg-circle-3{
+    top: 92%;
+    margin-top: -$circle-margin3;
+    margin-left: -$circle-margin3;
+    width: $circle-size3;
+    height: $circle-size3;
+    border : 2px dashed rgba(241, 241, 241, 0.12);
+   @include anim-create(rotateCircle, 120s, linear, 0s, infinite, normal, forwards, running );
+}
+
+.bg-circle-4{
+    top: 103%;
+    margin-top: -$circle-margin4;
+    margin-left: -$circle-margin4;
+    width: $circle-size4;
+    height: $circle-size4;
+    border : 2px solid rgba(241, 241, 241, 0.15);
+   @include anim-create(rotateCircle, 205s, linear, 0s, infinite, normal, forwards, running );
+}
+
+.bg-cmini{
+    margin-top: 43.5%;
+    width: 10px;
+    height: 10px;
+    border:5px solid rgba(241, 241, 241, 0.45);
+    border-radius: 100%;
+}
+
+@include keyframe-rotate(rotateCircle, 0deg, 360deg );
 
 //Elements
-.audiostyle {
-    float: right;
-    top: 10px;
-    right:0;
+.view-element{
+    position: relative;
+    height: 100%;
+}
+
+.audio-element {
+    position: absolute;
+    top: 25px;
+    right:25px;
+    padding-left: -5px;
     font-size: 1.5em;
     background-color: transparent;
-    background-repeat: no-repeat;
     cursor: pointer;
     overflow: hidden;
     border: none;
+    z-index: 0;
+    @include anim-transition( 0.5s, ease-in );
 }
 
-
-//Alignment
-.view-alignement {
-    text-align:center;
-    min-height: 500px;
+.audio-element:hover {
+    color: ghostwhite;
 }
 
+.audio-button {
+    margin-left: -3px;
+    text-decoration:none;
+    background-color: transparent;
+    border: none;
+}
+
+//SVG Animation
+.animated-border{
+    width: 30px;
+	height: 30px;
+	position: relative;
+}
+
+//This should eventually be properly named
+svg, .svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+svg line {
+	stroke-width: 2;
+	stroke: #000;
+	fill: none;
+	stroke-dasharray: 100;
+    @include anim-transition( 0.5s, ease-out );
+}
+
+div:hover svg line.top {
+  @include anim-translateX(-60px);
+}
+
+div:hover svg line.bottom {
+  @include anim-translateX(60px);
+}
+
+div:hover svg line.left {
+  @include anim-translateY(60px);
+}
+
+div:hover svg line.right {
+  @include anim-translateY(-60px);
+}
 
 //Lines
 .fadeline{

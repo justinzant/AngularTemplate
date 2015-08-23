@@ -1,12 +1,33 @@
 ﻿<!-- Audio Template -->
-<audio id="myAudio" class="audiodiv" onloadeddata="set_volume(0.3)">
- <source src="../../content/audio/hourglass.mp3" type='audio/mp3'>
- <source src="../../content/audio/hourglass.ogg" type='audio/ogg; codecs=vorbis'>
- Your user browser does not support the HTML5 Audio element.
-</audio>
-<button class="audiostyle glyphicon glyphicon-music" type="button" onclick="aud_play_pause()"></button>
-<script>
 
+<div class="audio-element">
+    <div class="animated-border">
+        <!--
+        
+              <object class="svg" type="image/svg+xml" data="views/modules/audioborder.svg"></object>
+            -->
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g>
+                <line class="top" x1="0" y1="0" x2="60" y2="0" />
+                <line class="left" x1="0" y1="-30" x2="0" y2="-60" />
+                <line class="bottom" x1="30" y1="30" x2="-30" y2="30" />
+                <line class="right" x1="30" y1="60" x2="30" y2="90" />
+            </g>
+        </svg>
+
+        <audio id="myAudio" onloadeddata="set_volume(0.3)">
+            <source src="../../content/audio/hourglass.mp3" type='audio/mp3'>
+            <source src="../../content/audio/hourglass.ogg" type='audio/ogg; codecs=vorbis'>
+            Your user browser does not support the HTML5 Audio element.
+        </audio>
+        <button class="audio-button glyphicon glyphicon-music" type="button" onclick="aud_play_pause()"></button>
+
+    </div>
+</div>
+
+
+
+<script>
 function set_volume(vol) {
     document.getElementById("myAudio").volume = vol;
 }

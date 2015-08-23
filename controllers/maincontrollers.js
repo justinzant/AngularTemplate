@@ -2,10 +2,27 @@
 
 var tempModule = angular.module('mainControllers', []);
 
-tempModule.controller('main', function ($scope) {
-    $scope.appTitle = "TemplateApp";
-});
+tempModule.controller('main', ['$scope', '$routeParams', '$http',
+    function ($scope, $routeParams, $http) {
+        $scope.appTitle = "TemplateApp";
 
+        if (!$routeParams.homeId) {
+            $http.get('/views/home/home.json').success(function (pdata) {
+                $scope.homeData = pdata.Partial;
+            })
+        } else {
+            $http.get('/views/home/' + $routeParams.homeId + '.json').
+                success(function (pdata) {
+                    $scope.homeData = pdata.Partial;
+                }).
+                error(function (edata) {
+                    $http.get("/views/home/home.json").success(function (dataFallback) {
+                        $scope.homeData = dataFallback.Partial;
+                    });
+                });
+        }
+        
+}]);
 
 //Fetch .json lists to retrieve Data for URLs & UL lists
 tempModule.controller('navigation', function ($scope, $http) {
@@ -15,17 +32,29 @@ tempModule.controller('navigation', function ($scope, $http) {
 });
 
 //Fetch .json Template info; file will have to be identical to id of both the routeParam and LinkId
-tempModule.controller('games', ['$scope', '$routeParams', '$http',
+//First fetch directs to the info that fils HTML template
+//Second fetch gets the entire listof partials
+tempModule.controller('partials', ['$scope', '$routeParams', '$http',
     function ($scope, $routeParams, $http) {
-        $http.get('/views/games/' + $routeParams.gameId + '.json').
-            success(function (gdata) {
-                $scope.gamesData = gdata.Game;
+        $scope.partialsData = [];
+        $scope.route = $routeParams.partialId;
+        if (!$routeParams.partialId) {
+            $http.get('/views/home/home.json').success(function (pdata) {
+                $scope.partialsData = pdata.Partial;
+                $scope.route = 'home';
+            })
+        } else{
+        $http.get('/views/partials/' + $routeParams.partialId + '.json').
+            success(function (pdata) {
+                $scope.partialsData = pdata.Partial;
             }).
             error(function(edata){
-                $http.get("/views/games/games.json").success(function (gdataFallback) {
-                    $scope.gamesData = gdataFallback.GamesList;
+                $http.get("/views/partials/partials.json").success(function (dataFallback) {
+                    $scope.partialsData = dataFallback.PartialsList;
                 });
             });
+        }
+        
     }]);
 
 

@@ -8,6 +8,95 @@
     * classes have a c- prefix
 /*----------------------------------------*/
 
+//Positions are relative to their parent
+
+.c-table{
+    display: table;
+    margin: 0 auto;
+    width: 500px;
+    height: 100%;
+}
+
+.c-row{
+    display: table-row;
+}
+
+[class*="c-cell"]{
+    display: table-cell;
+}
+
+.c-cell-01{
+    height: 25%;
+    vertical-align: bottom;
+}
+.c-cell-02{
+    height: 50%;
+    
+}
+.c-cell-03{
+    height: 25%;
+}
+
+.c-contentbox {
+    position: absolute;
+    bottom: 25%;
+    width: 500px;
+    overflow-y: scroll;
+    scrollbar-shadow-color: #3faad5;
+    scrollbar-base-color: #3faad5;
+    scrollbar-arrow-color: #3faad5;
+    scrollbar-track-color:#3399cc;
+    scrollbar-3dlight-color: #3faad5;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+    @include anim-expand(expand, 0, 1, ease-in-out, 0.5s);
+    z-index: 2;
+}
+
+//Scrollbar
+::-webkit-scrollbar
+{
+  width: 8px;  /* for vertical scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.0);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(255, 255, 255, 0.2);
+}
+
+//Inner content container
+.c-title{
+    width: 100%;
+    vertical-align: central;
+    background-image: none;
+}
+
+.c-paddingbox{
+    padding: 60px;
+}
+
+.c-header {
+    margin-bottom: -50px;
+    width: 500px;
+}
+
+.c-header .title-index {
+    display: inline;
+    width: 10%;
+    padding-right: 2%;
+    border-right: 1px solid rgba(246,248,249,1); 
+}
+
+.c-header .title-name {
+    display: inline;
+    margin-left: 2%;
+    width: 88%;
+}
+
 #c-bgvid {
     position: fixed;
     top: 50%;
@@ -23,61 +112,77 @@
     background-size: cover;
 }
 
-.c-contentbox {
-    display: inline-block; 
-    position: absolute;
-    bottom: 175px;
-    width: 500px;
-    margin-left: -250px;
-    font-family: $brand-main-font;
-    color: $brand-main-font-color;
-    overflow: hidden;
-    line-height: 24px;
-    background: rgba(255, 255, 255, 0.10);
-
-    @include anim-expand( expand, 1, ease-in-out, 0.5s );
+.c-animated-border {
+	position: absolute;
+	top: 5px;
+	left: 0;
 }
 
-.c-title{
-     display: inline-block;
-     position: absolute;
-     margin: 0 auto;
-     bottom: 800px;
-     left: 50%;
-     width: 250px;
-     margin-left: -125px;
-     font-family: $brand-main-font;
-     font-weight: $brand-main-weight;
-     letter-spacing: $brand-main-letter-spacing;
-     color: $brand-main-font-color;
-     font-size: 50px;
+.c-animated-border svg {
+    width: 490px;
+    height: 450px;
 }
 
-.c-header {
-    position: absolute;
-    display: inline-block;
-    margin-left: -250px;
-    padding-top: 10px;
-    width: 500px;
-    bottom: 150px;
-}
-.c-header .title-index {
-    display: inline;
-    width: 10%;
-    padding-right: 2%;
-    font-size: 20px;
-    font-variant: small-caps;
-    border-right: 1px solid rgba(246,248,249,1); 
-    color: white;
+.c-animated-border svg line {
+	stroke-width: 2;
+	stroke: rgba(248, 248, 255, 0.40);
+	fill: none;
+	stroke-dasharray: 500;
+    @include anim-transition( 1.25s, ease-in-out );
 }
 
-.c-header .title-name {
-    display: inline;
-    margin-left: 2%;
-    width: 88%;
-    font-size: 20px;
-    font-weight: bold;
-    font-variant: small-caps;
-    color: white;
+//Animated Lines
+$borderspeed: 5s;
+.c-animated-border svg line.top{
+    @include anim-create(animate-topline, $borderspeed, ease, 0s, infinite, alternate-reverse, forwards, running);
+    stroke: rgba(248, 248, 255, 0.50);
 }
 
+.c-animated-border svg line.bottom{
+    @include anim-create(animate-bottomline, $borderspeed, ease-in, 0s, infinite, alternate-reverse, forwards, running);
+    stroke: rgba(248, 248, 255, 0.50);
+}
+
+.c-animated-border svg line.right{
+    @include anim-create(animate-rightline, $borderspeed, ease-in, 0s, infinite, alternate-reverse, forwards, running);
+    stroke: rgba(248, 248, 255, 0.50);
+}
+
+.c-animated-border svg line.left{
+    @include anim-create(animate-leftline, $borderspeed, ease-in, 0s, infinite, alternate-reverse, forwards, running);
+    stroke: rgba(248, 248, 255, 0.50);
+}
+
+//On:Hover Content Holder
+$strokecolor: rgba(248, 248, 255, 0.2);
+.c-animated-border:hover svg line.top {
+  @include anim-translateX(-1000px);
+  stroke: $strokecolor;
+  stroke-dasharray: 100;
+}
+
+.c-animated-border:hover svg line.bottom {
+  @include anim-translateX(1000px);
+  stroke: $strokecolor;
+  stroke-dasharray: 100;
+}
+
+.c-animated-border:hover svg line.left {
+  @include anim-translateY(1000px);
+  stroke: $strokecolor;
+   stroke-dasharray: 100;
+}
+
+.c-animated-border:hover svg line.right {
+  @include anim-translateY(-1000px);
+  stroke: $strokecolor;
+   stroke-dasharray: 100;
+}
+
+//Keyframes
+@include keyframe-property(expand, max-height, 0%, 100%);
+
+@include keyframe-translate(animate-topline     , -1000px, 0px, 0px, 0px );
+@include keyframe-translate(animate-bottomline  , 1000px, 0px, 0px, 0px );
+@include keyframe-translate(animate-rightline   , 0px, -1000px, 0px, 0px );
+@include keyframe-translate(animate-leftline    , 0px, 1000px, 0px, 0px );

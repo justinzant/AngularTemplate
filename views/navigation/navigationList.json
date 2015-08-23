@@ -13,8 +13,12 @@
       "Id": "info"
     },
     {
-      "Name": "Other",
-      "Id": "other"
+      "Name": "Contact",
+      "Id": "contact"
+    },
+    {
+      "Name": "Download",
+      "Id": "download"
     }
   ]
 }

@@ -1,59 +1,89 @@
 ﻿<!-- Header Expand Template -->
-<nav id="nav-botline">
+
+<nav id="nav-border">
+    <nav id="nav-bot" ng-controller="navigation">
+
+        <a href="#/views/home/{{ navList[0].Id }}">
+            <div id="navbutton0" class="navclass"></div>
+        </a>
+
+        <a href="#/views/home/{{ navList[0].Id }}" onclick="TransitionCaller('home')">
+            <div id="navbutton1" class="navclass">
+                <br />
+                <span class="glyphicon glyphicon-home"></span>
+                <h6 class="vertical-text">
+                    {{ navList[0].Name }}
+                </h6>
+            </div>
+        </a>
+
+        <a href="#/views/partials/{{ navList[1].Id }}" onclick="TransitionCaller('projects')">
+            <div id="navbutton2" class="navclass">
+                <br />
+                <span class="glyphicon glyphicon-book"></span>
+                <h6 class="vertical-text">
+                    {{ navList[1].Name }}
+                </h6>
+            </div>
+        </a>
+
+        <a href="#/views/partials/{{ navList[2].Id }}" onclick="TransitionCaller('info')">
+            <div id="navbutton3" class="navclass">
+                <br />
+                <span class="glyphicon glyphicon-user"></span>
+                <h6 class="vertical-text">
+                    {{ navList[2].Name }}
+                </h6>
+            </div>
+        </a>
+
+        <a href="#/views/partials/{{ navList[3].Id }}" onclick="TransitionCaller('contact')">
+            <div id="navbutton4" class="navclass">
+                <br />
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <h6 class="vertical-text">
+                    {{ navList[3].Name }}
+                </h6>
+            </div>
+        </a>
+
+        <a href="#/views/partials/{{ navList[4].Id }}" onclick="TransitionCaller('download')">
+            <div id="navbutton5" class="navclass">
+                <br />
+                <span class="glyphicon glyphicon-download"></span>
+                <h6 class="vertical-text">
+                    {{ navList[4].Name }}
+                </h6>
+            </div>
+        </a>
+
+        <a href="#/views/home/{{ navList[1].Id }}">
+            <div id="navbutton6" class="navclass"></div>
+        </a>
     </nav>
-<nav id="nav-bot">
-    <div id="navbutton0" class="nav-button">
-        <br />
-        <span class="glyphicon glyphicon-home"></span>
-        <h6 class="vertical-text"><a href="#">Home</a></h6>
-    </div>
-
-    <div id="navbutton1" class="nav-button">
-        <br />
-        <span class="glyphicon glyphicon-book"></span>
-        <h6 class="vertical-text"><a href="#">Portfolio</a></h6>
-    </div>
-
-    <div id="navbutton2" class="nav-button">
-        <br />
-        <span class="glyphicon glyphicon-user"></span>
-        <h6 class="vertical-text"><a href="#">About</a></h6>
-    </div>
-
-    <div id="navbutton3" class="nav-button">
-        <br />
-        <span class="glyphicon glyphicon-info-sign"></span>
-        <h6 class="vertical-text"><a href="#">Contact</a></h6>
-    </div>
-
-    <div id="navbutton4" class="nav-button">
-        <br />
-        <span class="glyphicon glyphicon-download"></span>
-        <h6 class="vertical-text"><a href="#">Contact</a></h6>
-    </div>
 </nav>
 
+<script src="app/customjs/pagetransition.js"></script>
 <script>
-    var tumbGrid = [];
-    var size = 5;
+    var size = 7;
 
-    function coroutine(f) {
-        var o = f(); // instantiate the coroutine
-        o.next(); // execute until the first yield
-        return function(x) {
-            o.next(x);
-        }
-    }
+    $.each($('.navclass'), function (i) {
 
-    var clock = coroutine(function *(_) {
-        for (var i = 0; i < size; i++) {
+        setTimeout(function () {
             var navbutton = document.getElementById("navbutton" + i);
-            navbutton.style.zIndex = 0;
-            navbutton.style.left = 50*i + "px";
-            tumbGrid.push(navbutton);
-            yield [_]
-        }
-    });
+            if (i == 0) {
+                navbutton.classList.add("nav-button-previous");
+                navbutton.style.left = -50 + "px";
+            } else if (i == size - 1) {
+                navbutton.classList.add("nav-button-next");
+                navbutton.style.left = (50 * i) + 50 + "px";
+            } else {
+                navbutton.classList.add("nav-button");
+                navbutton.style.left = (50 * i) + "px";
+            }
 
-    setInterval(clock, 200);
+            navbutton.style.zIndex = 1;
+        }, 200 + (i * 200));
+
+    });
 </script>
