@@ -1,0 +1,20 @@
+﻿{
+  "Partial": {
+    "Name": "PROJECTS",
+    "Title": "Project history",
+    "Description": [
+      "About ~8 years ago I worked for a company that made websites with older CSS frameworks. These sites varied from traveling agencies such as oad, petshops, and some smaller clients.",
+      "While it has been a long time, I always remained involved to keep myself up to date with new technologies, learning them, and applying them in personal applications."
+    ],
+    "Contribution": "",
+    "Id": "projects",
+    "Index": "02",
+    "Images": [
+      ""
+    ],
+    "Urls": {
+      "Website": "http://www.moonscrapers.nl",
+      "PressKit": "http://presskit.nl"
+    }
+  }
+}

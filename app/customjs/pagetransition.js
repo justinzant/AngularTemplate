@@ -13,7 +13,7 @@ function Get(targeturl) {
 
 // Fetch json object containing all PartialId's; 
 // Each page represents a PartialId, which in turn its own content-frame .class 
-var json_obj = JSON.parse(Get('../../views/partials/partials.json'));
+var json_obj = JSON.parse(Get('views/partials/partials.json'));
 myPartialsArr = json_obj.PartialsList;
 
 function Replace (o, n) {

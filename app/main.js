@@ -13,7 +13,7 @@ tempApp.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
       $routeProvider.
          when('/:homeId', {
-            templateUrl: 'views/home/home.html',
+            templateUrl: '/views/home/home.html',
             controller: 'main'
          })
           .when('/views/partials/:partialId', {

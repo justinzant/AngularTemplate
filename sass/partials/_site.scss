@@ -117,7 +117,7 @@ $circle-margin4: $c-size4/2 * $px-unit;
     cursor: pointer;
     overflow: hidden;
     border: none;
-    z-index: 0;
+    z-index: 1;
     @include anim-transition( 0.5s, ease-in );
 }
 

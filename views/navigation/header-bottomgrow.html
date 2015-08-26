@@ -3,7 +3,7 @@
 <nav id="nav-border">
     <nav id="nav-bot" ng-controller="navigation">
 
-        <a href="#/views/home/{{ navList[0].Id }}">
+        <a href="#{{ pageUrl }}" ng-click="$emit('PagePrevious')">
             <div id="navbutton0" class="navclass"></div>
         </a>
 
@@ -56,8 +56,8 @@
                 </h6>
             </div>
         </a>
-
-        <a href="#/views/home/{{ navList[1].Id }}">
+        {{pageId}}
+        <a href="#{{ pageUrl }}" ng-click="$emit('PageNext')">
             <div id="navbutton6" class="navclass"></div>
         </a>
     </nav>

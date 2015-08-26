@@ -88,10 +88,10 @@
 }
 
 .content-frame-download{
-    @include bg-gradient-radial(#b6ff00, #87b90a); 
+    @include bg-gradient-radial(#d049be, #943d77); 
     background-repeat: no-repeat;
 
-    @include border-image( 8px, 12px, url(../../content/images/borderimage02.png), 14% );
+    @include border-image( 8px, 12px, url(../../content/images/borderimagepink.png), 14% );
     @include anim-create(scaleDown, 0.7s, ease, 0s, 1, alternate, forwards, running);
 }
 

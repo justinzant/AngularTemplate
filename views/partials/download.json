@@ -1,24 +1,23 @@
 ﻿{
   "Partial": {
     "Name": "DOWNLOAD",
-    "Title": "Download",
+    "Title": "Downloads",
     "Description": [
-      "p1",
-      "p2"
+      "Project on GitHub: ",
+      "https://github.com/justinzant/AngularTemplate",
+      "Resume: ",
+      "http://www.justinzant.com/resume_justinzant.pdf"
     ],
-    "Contribution": "Description of moonscrapers",
+    "Contribution": "",
     "Id": "download",
     "Index": "05",
     "Images": [
-      "img/games/moonscrapers01.jpg",
-      "img/games/moonscrapers02.jpg",
-      "img/games/moonscrapers03.jpg",
-      "img/games/moonscrapers04.jpg",
-      "img/games/moonscrapers05.jpg"
+      "",
+      ""
     ],
     "Urls": {
-      "Website": "http://www.moonscrapers.nl",
-      "PressKit": "http://presskit.nl"
+      "Website": "https://github.com/justinzant/AngularTemplate",
+      "PressKit": "content/files/resume_justinzant.pdf"
     }
   }
 }
